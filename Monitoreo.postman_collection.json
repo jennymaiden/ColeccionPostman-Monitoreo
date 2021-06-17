@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "b8f1728b-d98c-451b-bf76-f420b666c608",
+		"name": "Monitoreo",
+		"description": "Creacion de microservicios para el monitoreo de una red",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Diagnostico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/monitoreo/diagnostico/:idLatencia",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"monitoreo",
+						"diagnostico",
+						":idLatencia"
+					],
+					"variable": [
+						{
+							"key": "idLatencia",
+							"value": ""
+						}
+					]
+				},
+				"description": "Microservicio GET para poder ver el diagnostico resultado del monitoreo"
+			},
+			"response": []
+		},
+		{
+			"name": "Alertas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/monitoreo/alertas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"monitoreo",
+						"alertas"
+					]
+				},
+				"description": "Microservicio GET para poder listar las alertas que se ha lanzado en los monitoreos"
+			},
+			"response": []
+		},
+		{
+			"name": "TiempoReal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numClientes\":2,\n    \"tamanioPaquete\":72,\n    \"tiempoSeg\":60,\n    \"URL\":\"www.google.com\",\n    \"fechaInicio\":\"2021-01-10 20:14:31\",\n    \"horaInicio\": \"10:30\",\n    \"fechaFin\":\"2021-01-11 08:14:31\",\n    \"horaFin\":\"11:20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/monitoreo/tiemporeal",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"monitoreo",
+						"tiemporeal"
+					]
+				},
+				"description": "Microservicio de SCREEM para monitorear en tiempo real la toma de la latencia de la red"
+			},
+			"response": []
+		},
+		{
+			"name": "Programado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numClientes\":4,\n    \"tamanioPaquete\":72,\n    \"tiempoSeg\":60,\n    \"URL\":\"www.google.com\",\n    \"fechaInicio\":\"2016-10-31 20:14:31\",\n    \"horaInicio\": \"10:30\",\n    \"fechaFin\":\"2021-01-11\",\n    \"horaFin\":\"11:20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/monitoreo/programado",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"monitoreo",
+						"programado"
+					]
+				},
+				"description": "Microservicio POST para programar el monitoreo y se vaya ejecutando"
+			},
+			"response": []
+		},
+		{
+			"name": "Suscripcion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"endpoint\":\"https://fcm.googleapis.com/fcm/send/dZz5JH7f7c0:APA91bEUk_FUNxrEeyqIbS87g_iLXGPVhcPiYLVScvtX08fLAonC5ceB4QXBf0ZRowI5DluUu418Kh6K5YdhdenBYIqDC-sF4L8CQNJmdLxKKzxYebOTnp1bpgKGcELWEXCf3GdGh5cH\",\n   \"keys\":{\n      \"p256dh\":\"BLQNopwvzTlBKU5q6NQORBbkUb4qdj9wISx-LZ6ngg07lwHc0DfS8rPUI0fhrpDGl23xlK35s-3bD0KfTLcEnUQ\",\n      \"auth\":\"wmS9Pd1IuQ709JB8uQ7CTg\"\n   }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/monitoreo/suscripcion",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"monitoreo",
+						"suscripcion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notificación",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"payload\":{\n      \"title\":\"Felicitaciones!\",\n      \"message\":\"Se a terminado el monitoreo de la toma de muestra 1 de forma exitosa\"\n   }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}api/monitoreo/notificacion?mensaje=Muestra de latencia exitosa del 24/02/2021 ver",
+					"host": [
+						"{{url}}api"
+					],
+					"path": [
+						"monitoreo",
+						"notificacion"
+					],
+					"query": [
+						{
+							"key": "mensaje",
+							"value": "Muestra de latencia exitosa del 24/02/2021 ver"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Grafica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
